@@ -2,7 +2,7 @@
     "name": "vscode-view-readme",
     "displayName": "view-readme",
     "description": "View readme in node_modules quickly.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
     "engines": {
