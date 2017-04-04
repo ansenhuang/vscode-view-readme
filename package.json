@@ -2,23 +2,21 @@
     "name": "vscode-view-readme",
     "displayName": "view-readme",
     "description": "View readme in node_modules quickly.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
     "engines": {
         "vscode": "^1.10.0"
     },
     "galleryBanner": {
-        "color": "#57c5f7",
+        "color": "#eff1f3",
         "theme": "light"
     },
-    
     "categories": [
         "Other"
     ],
     "activationEvents": [
-        "onCommand:viewReadme.showLocal",
-        "onCommand:viewReadme.showRemote"
+        "onCommand:viewReadme.showLocal"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -42,10 +40,6 @@
             {
                 "command": "viewReadme.showLocal",
                 "title": "Readme: View In Local"
-            },
-            {
-                "command": "viewReadme.showRemote",
-                "title": "Readme: View In Remote"
             }
         ],
         "keybindings": [
@@ -53,16 +47,10 @@
                 "command": "viewReadme.showLocal",
                 "key": "ctrl+shift+l",
                 "mac": "cmd+shift+l"
-            },
-            {
-                "command": "viewReadme.showRemote",
-                "key": "ctrl+shift+r",
-                "mac": "cmd+shift+r"
             }
         ]
     },
     "scripts": {
-        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
         "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
@@ -71,7 +59,7 @@
         "@types/node": "^6.0.40",
         "eslint": "^3.6.0",
         "mocha": "^2.3.3",
-        "request": "^2.81.0",
+        "request": "2.78.0",
         "typescript": "^2.0.3",
         "vscode": "^1.0.0"
     },

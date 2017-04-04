@@ -2,3 +2,4 @@ node_modules
 *.log*
 yarn*
 .DS_Store
+*.vsix

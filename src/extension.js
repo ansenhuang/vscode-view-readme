@@ -1,6 +1,6 @@
 var vscode = require('vscode');
 var Local = require('./Local');
-var Remote = require('./Remote');
+// var Remote = require('./Remote');
 var { INPUT_PROMPT } = require('./config');
 
 function activate (context) {
@@ -12,15 +12,16 @@ function activate (context) {
         });
     });
 
-    var disposableRemote = vscode.commands.registerCommand('viewReadme.showRemote', function () {
-        vscode.window.showInputBox({
-            prompt: INPUT_PROMPT
-        }).then(function (moduleName) {
-            new Remote(moduleName);
-        });
-    });
+    // var disposableRemote = vscode.commands.registerCommand('viewReadme.showRemote', function () {
+    //     vscode.window.showInputBox({
+    //         prompt: INPUT_PROMPT
+    //     }).then(function (moduleName) {
+    //         new Remote(moduleName);
+    //     });
+    // });
 
-    context.subscriptions.push(disposableLocal, disposableRemote);
+    context.subscriptions.push(disposableLocal);
+    // context.subscriptions.push(disposableRemote);
 }
 
 function deactivate () {}
