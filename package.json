@@ -1,0 +1,93 @@
+{
+    "name": "vscode-view-readme",
+    "displayName": "view-readme",
+    "description": "View readme in node_modules quickly.",
+    "version": "0.1.0",
+    "publisher": "ansenhuang",
+    "icon": "images/logo128.png",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "galleryBanner": {
+        "color": "#57c5f7",
+        "theme": "light"
+    },
+    
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:viewReadme.showLocal",
+        "onCommand:viewReadme.showRemote"
+    ],
+    "main": "./src/extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "View readme configuration",
+            "properties": {
+                "view-readme.savePath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Save in local path when request remote."
+                },
+                "view-readme.npmUrl": {
+                    "type": "string",
+                    "default": "https://registry.npmjs.org/",
+                    "description": "Save in local path when request remote."
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "viewReadme.showLocal",
+                "title": "Readme: View In Local"
+            },
+            {
+                "command": "viewReadme.showRemote",
+                "title": "Readme: View In Remote"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "viewReadme.showLocal",
+                "key": "ctrl+shift+l",
+                "mac": "cmd+shift+l"
+            },
+            {
+                "command": "viewReadme.showRemote",
+                "key": "ctrl+shift+r",
+                "mac": "cmd+shift+r"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.32",
+        "@types/node": "^6.0.40",
+        "eslint": "^3.6.0",
+        "mocha": "^2.3.3",
+        "request": "^2.81.0",
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ansenhuang/vscode-view-readme.git"
+    },
+    "keywords": [
+        "vscode",
+        "view",
+        "readme"
+    ],
+    "author": "ansenhuang",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ansenhuang/vscode-view-readme/issues"
+    },
+    "homepage": "https://github.com/ansenhuang/vscode-view-readme#readme"
+}
