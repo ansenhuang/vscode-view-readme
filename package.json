@@ -1,8 +1,8 @@
 {
     "name": "vscode-view-readme",
     "displayName": "view-readme",
-    "description": "View readme in node_modules quickly.",
-    "version": "0.1.2",
+    "description": "Open readme.md at nearly path of node_modules quickly. ",
+    "version": "0.1.3",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
     "engines": {
@@ -32,14 +32,14 @@
                 "view-readme.npmUrl": {
                     "type": "string",
                     "default": "https://registry.npmjs.org/",
-                    "description": "Save in local path when request remote."
+                    "description": "Get data from remote url."
                 }
             }
         },
         "commands": [
             {
                 "command": "viewReadme.showLocal",
-                "title": "Readme: View In Local"
+                "title": "Readme: Open markdown file"
             }
         ],
         "keybindings": [
@@ -51,7 +51,6 @@
         ]
     },
     "scripts": {
-        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
@@ -59,7 +58,6 @@
         "@types/node": "^6.0.40",
         "eslint": "^3.6.0",
         "mocha": "^2.3.3",
-        "request": "2.78.0",
         "typescript": "^2.0.3",
         "vscode": "^1.0.0"
     },
@@ -69,8 +67,8 @@
     },
     "keywords": [
         "vscode",
-        "view",
-        "readme"
+        "readme",
+        "node_modules"
     ],
     "author": "ansenhuang",
     "license": "MIT",

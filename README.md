@@ -1,14 +1,14 @@
-# view-readme README
+# view-readme
 
-View readme in node_modules quickly.
+Open readme.md at nearly path of node_modules quickly. 
 
-## Commands
-* Readme: View In Local
-* Readme: View In Remote
+![](images/example.gif)
 
-## KeyBindings
-* mac: cmd+shift+l,  win: ctrl+shift+l (View In Local)
-* mac: cmd+shift+r,  win: ctrl+shift+r (View In Remote)
+### Commands
 
-## Settings
-* npmUrl (default: https://registry.npmjs.org/)
+* Readme: Open markdown file
+
+### KeyBindings
+
+* Mac: cmd+shift+l (Readme: Open markdown file)
+* Win: ctrl+shift+l (Readme: Open markdown file)
