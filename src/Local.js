@@ -5,50 +5,55 @@ var {
     MARKDOWN_PREVIEW,
     README_NAMES,
     NO_FILE,
-    NOT_FOUND
+    NOT_FOUND,
+    PICK_PLACE_HOLDER
 } = require('./config');
 
-function Local (moduleName) {
-    this.moduleName = moduleName;
-
-    moduleName && this.init();
+function local () {
+    var files = vscode.workspace.textDocuments;
+    if (files.length) {
+        var last = files.length - 1;
+        handlePath(path.dirname(files[last].fileName));
+    } else {
+        vscode.window.showInformationMessage(NO_FILE);
+    }
 }
 
-Local.prototype = {
-    init: function () {
-        var files = vscode.workspace.textDocuments;
-        if (files.length) {
-            var last = files.length - 1;
-            this.handlePath(path.dirname(files[last].fileName));
-        } else {
-            vscode.window.showInformationMessage(NO_FILE);
-        }
-    },
-    handlePath: function (dir) {
-        if (dir === '/') {
-            vscode.window.showInformationMessage(NOT_FOUND);
-            return;
-        }
+function handlePath (dir) {
+    if (dir === '/') {
+        vscode.window.showInformationMessage(NOT_FOUND);
+        return;
+    }
 
-        var modulePath = path.join(dir, 'node_modules', this.moduleName);
-        if (fs.existsSync(modulePath)) {
-            this.handleReadme(modulePath);
-        } else {
-            this.handlePath(path.dirname(dir));
-        }
-    },
-    handleReadme: function (modulePath) {
-        var readmeName = README_NAMES.find(function (name) {
-            return fs.existsSync(path.join(modulePath, name));
+    var nodeModulesPath = path.join(dir, 'node_modules');
+    if (fs.existsSync(nodeModulesPath)) {
+        var modules = fs.readdirSync(nodeModulesPath).filter(function (module) {
+            return module[0] !== '.';
         });
 
-        if (readmeName) {
-            var readmePath = path.join(modulePath, readmeName);
-            vscode.commands.executeCommand(MARKDOWN_PREVIEW, vscode.Uri.parse('file://' + readmePath));
-        } else {
-            vscode.window.showInformationMessage(NOT_FOUND);
-        }
+        vscode.window.showQuickPick(modules, {
+            placeHolder: PICK_PLACE_HOLDER
+        }).then(function (module) {
+            if (module) {
+                handleReadme(path.join(nodeModulesPath, module));
+            }
+        }).catch(console.error);
+    } else {
+        handlePath(path.dirname(dir));
     }
-};
+}
 
-module.exports = Local;
+function handleReadme (modulePath) {
+    var readmeName = README_NAMES.find(function (name) {
+        return fs.existsSync(path.join(modulePath, name));
+    });
+
+    if (readmeName) {
+        var readmePath = path.join(modulePath, readmeName);
+        vscode.commands.executeCommand(MARKDOWN_PREVIEW, vscode.Uri.parse('file://' + readmePath));
+    } else {
+        vscode.window.showInformationMessage(NOT_FOUND);
+    }
+}
+
+module.exports = local;

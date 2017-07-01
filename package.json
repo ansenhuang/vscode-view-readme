@@ -2,7 +2,7 @@
     "name": "vscode-view-readme",
     "displayName": "view-readme",
     "description": "Open readme.md at nearly path of node_modules quickly. ",
-    "version": "0.1.3",
+    "version": "0.2.0",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
     "engines": {

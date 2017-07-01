@@ -3,8 +3,8 @@
 
 exports.MARKDOWN_PREVIEW = 'markdown.showPreview';
 exports.README_NAMES = ['README.md', 'readme.md', 'Readme.md', 'README', 'readme'];
-exports.INPUT_PROMPT = 'Enter module name';
-exports.NO_FILE = 'Please open file firstly.';
+exports.PICK_PLACE_HOLDER = 'Pick module name';
+exports.NO_FILE = 'Please open file firstly at any project.';
 exports.NOT_FOUND = 'Module not found!';
 
 // exports.REMOTE_URL = 'https://registry.npmjs.org/'; // + moduleName  http://registry.npm.taobao.org/

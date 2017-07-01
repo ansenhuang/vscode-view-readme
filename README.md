@@ -2,7 +2,7 @@
 
 Open readme.md at nearly path of node_modules quickly. 
 
-![](images/example.gif)
+![](https://github.com/ansenhuang/vscode-view-readme/blob/master/images/example.gif?raw=true)
 
 ### Commands
 

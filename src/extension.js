@@ -1,15 +1,10 @@
 var vscode = require('vscode');
-var Local = require('./Local');
+var local = require('./local');
 // var Remote = require('./Remote');
-var { INPUT_PROMPT } = require('./config');
 
 function activate (context) {
     var disposableLocal = vscode.commands.registerCommand('viewReadme.showLocal', function () {
-        vscode.window.showInputBox({
-            prompt: INPUT_PROMPT
-        }).then(function (moduleName) {
-            new Local(moduleName);
-        });
+        local();
     });
 
     // var disposableRemote = vscode.commands.registerCommand('viewReadme.showRemote', function () {
