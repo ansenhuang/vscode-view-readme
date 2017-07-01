@@ -3,7 +3,7 @@ var local = require('./local');
 // var Remote = require('./Remote');
 
 function activate (context) {
-    var disposableLocal = vscode.commands.registerCommand('viewReadme.showLocal', function () {
+    var disposableLocal = vscode.commands.registerCommand('viewReadme.markdown', function () {
         local();
     });
 

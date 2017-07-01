@@ -1,10 +1,13 @@
 {
     "name": "vscode-view-readme",
     "displayName": "view-readme",
-    "description": "Open readme.md at nearly path of node_modules quickly. ",
-    "version": "0.2.0",
+    "description": "Open readme.md at nearly path of node_modules quickly.",
+    "version": "0.2.1",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
+    "scripts": {
+        "publish": "vsce publish"
+    },
     "engines": {
         "vscode": "^1.10.0"
     },
@@ -16,7 +19,7 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:viewReadme.showLocal"
+        "onCommand:viewReadme.markdown"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -38,13 +41,13 @@
         },
         "commands": [
             {
-                "command": "viewReadme.showLocal",
+                "command": "viewReadme.markdown",
                 "title": "Readme: Open markdown file"
             }
         ],
         "keybindings": [
             {
-                "command": "viewReadme.showLocal",
+                "command": "viewReadme.markdown",
                 "key": "ctrl+shift+l",
                 "mac": "cmd+shift+l"
             }

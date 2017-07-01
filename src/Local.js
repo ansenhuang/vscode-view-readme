@@ -37,7 +37,7 @@ function handlePath (dir) {
             if (module) {
                 handleReadme(path.join(nodeModulesPath, module));
             }
-        }).catch(console.error);
+        });
     } else {
         handlePath(path.dirname(dir));
     }
