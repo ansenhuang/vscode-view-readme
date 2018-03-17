@@ -2,7 +2,7 @@
     "name": "vscode-view-readme",
     "displayName": "view-readme",
     "description": "Open readme with markdown quickly at nearly path of node_modules or remote url.",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
     "scripts": {
