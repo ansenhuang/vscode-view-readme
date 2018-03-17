@@ -3,5 +3,3 @@ node_modules
 .vscode
 *.vsix
 *.log
-yarn.lock
-package-lock.json
