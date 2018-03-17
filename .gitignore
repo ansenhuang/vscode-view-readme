@@ -1,5 +1,7 @@
 node_modules
-*.log*
-yarn*
 .DS_Store
+.vscode
 *.vsix
+*.log
+yarn.lock
+package-lock.json

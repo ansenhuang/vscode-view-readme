@@ -2,7 +2,10 @@
 .vscode-test/**
 test/**
 .gitignore
+.DS_Store
+*.vsix
+*.log
+yarn.lock
+package-lock.json
 jsconfig.json
 .eslintrc.json
-yarn*
-*.vsix
