@@ -1,22 +1,25 @@
 var vscode = require('vscode');
 var local = require('./local');
-// var Remote = require('./Remote');
+var remote = require('./remote');
 
 function activate (context) {
-    var disposableLocal = vscode.commands.registerCommand('viewReadme.markdown', function () {
-        local();
+    console.log('Congratulations, your extension [view-readme] is now active!');
+
+    var disposableLocal = vscode.commands.registerCommand('viewReadme.markdown', local);
+
+    var disposableRemote = vscode.commands.registerCommand('viewReadme.remoteMarkdown', function () {
+        vscode.window.showInputBox({
+            prompt: 'Search moduleName'
+        }).then(function (moduleName) {
+            var name = moduleName && moduleName.trim();
+            if (name) {
+                remote(name);
+            }
+        });
     });
 
-    // var disposableRemote = vscode.commands.registerCommand('viewReadme.showRemote', function () {
-    //     vscode.window.showInputBox({
-    //         prompt: INPUT_PROMPT
-    //     }).then(function (moduleName) {
-    //         new Remote(moduleName);
-    //     });
-    // });
-
     context.subscriptions.push(disposableLocal);
-    // context.subscriptions.push(disposableRemote);
+    context.subscriptions.push(disposableRemote);
 }
 
 function deactivate () {}

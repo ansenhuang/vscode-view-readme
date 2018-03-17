@@ -1,11 +1,12 @@
 {
     "name": "vscode-view-readme",
     "displayName": "view-readme",
-    "description": "Open readme.md at nearly path of node_modules quickly.",
+    "description": "Open readme.md with markdown quickly at nearly path of node_modules or remote url.",
     "version": "0.2.1",
     "publisher": "ansenhuang",
     "icon": "images/logo128.png",
     "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
         "publish": "vsce publish"
     },
     "engines": {
@@ -19,7 +20,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:viewReadme.markdown"
+        "onCommand:viewReadme.markdown",
+        "onCommand:viewReadme.remoteMarkdown"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -27,22 +29,26 @@
             "type": "object",
             "title": "View readme configuration",
             "properties": {
-                "view-readme.savePath": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Save in local path when request remote."
-                },
-                "view-readme.npmUrl": {
+                "view-readme.remoteUrl": {
                     "type": "string",
                     "default": "https://registry.npmjs.org/",
-                    "description": "Get data from remote url."
+                    "description": "Request for readme.md data of package."
+                },
+                "view-readme.cacheDays": {
+                    "type": "string",
+                    "default": "7",
+                    "description": "Cache days of readme that get from remote before."
                 }
             }
         },
         "commands": [
             {
                 "command": "viewReadme.markdown",
-                "title": "Readme: Open markdown file"
+                "title": "Readme: Open markdown in node_modules"
+            },
+            {
+                "command": "viewReadme.remoteMarkdown",
+                "title": "Readme: Open markdown from remote url"
             }
         ],
         "keybindings": [
@@ -50,19 +56,24 @@
                 "command": "viewReadme.markdown",
                 "key": "ctrl+shift+l",
                 "mac": "cmd+shift+l"
+            },
+            {
+                "command": "viewReadme.remoteMarkdown",
+                "key": "ctrl+shift+j",
+                "mac": "cmd+shift+j"
             }
         ]
     },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install"
+    "dependencies": {
+        "request": "^2.85.0",
+        "vscode": "^1.0.0"
     },
     "devDependencies": {
         "@types/mocha": "^2.2.32",
         "@types/node": "^6.0.40",
         "eslint": "^3.6.0",
         "mocha": "^2.3.3",
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0"
+        "typescript": "^2.0.3"
     },
     "repository": {
         "type": "git",

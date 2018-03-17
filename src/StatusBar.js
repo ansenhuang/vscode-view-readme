@@ -1,36 +1,35 @@
 var vscode = require('vscode');
 
-function StatusBar (align) {
-  var Align = vscode.StatusBarAlignment[align] || vscode.StatusBarAlignment.Left;
-  this.statusBarItem = vscode.window.createStatusBarItem(Align);
-}
+var Align = vscode.StatusBarAlignment['Left'];
+var statusBarItem = vscode.window.createStatusBarItem(Align);
 
-StatusBar.prototype = {
-  show: function (msg, color, delay, isDispose) {
-    var self = this;
-    this.statusBarItem.text = msg;
+function show ({ msg, color, delay, dispose }) {
+    statusBarItem.text = msg;
+
     if (color) {
-      this.statusBarItem.color = color;
+        statusBarItem.color = color;
     }
-    this.statusBarItem.show();
+
+    statusBarItem.show();
 
     if (delay) {
-      setTimeout(function () {
-        if (!isDispose) {
-          self.hide();
-        } else {
-          self.dispose();
-        }
-      }, delay);
+        setTimeout(() => {
+            if (!dispose) {
+                hide();
+            } else {
+                dispose();
+            }
+        }, delay);
     }
-  },
-  hide: function () {
-    this.statusBarItem.hide();
-  },
-  dispose: function () {
-    this.hide();
-    this.statusBarItem.dispose();
-  }
-};
+}
 
-module.exports = StatusBar;
+function hide () {
+    statusBarItem.hide();
+}
+
+function dispose () {
+    hide();
+    statusBarItem.dispose();
+}
+
+module.exports = { show, hide, dispose };
