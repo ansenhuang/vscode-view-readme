@@ -27,8 +27,16 @@ function handlePath (dir) {
 
     var nodeModulesPath = path.join(dir, 'node_modules');
     if (fs.existsSync(nodeModulesPath)) {
-        var modules = fs.readdirSync(nodeModulesPath).filter(function (module) {
-            return module[0] !== '.';
+        var modules = [];
+
+        fs.readdirSync(nodeModulesPath).forEach(function (module) {
+            if (module[0] === '@') {
+                fs.readdirSync(path.join(nodeModulesPath, module)).forEach(function (name) {
+                    modules.push(module + '/' + name);
+                });
+            } else if (module[0] !== '.') {
+                modules.push(module);
+            }
         });
 
         vscode.window.showQuickPick(modules, {
