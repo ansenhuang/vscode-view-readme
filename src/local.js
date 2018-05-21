@@ -10,10 +10,10 @@ var {
 } = require('./config');
 
 function local () {
-    var files = vscode.workspace.textDocuments;
-    if (files.length) {
-        var last = files.length - 1;
-        handlePath(path.dirname(files[last].fileName));
+    var activeTextEditor = vscode.window.activeTextEditor;
+
+    if (activeTextEditor) {
+        handlePath(path.dirname(activeTextEditor.document.fileName));
     } else {
         vscode.window.showInformationMessage(NO_FILE);
     }
