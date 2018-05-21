@@ -7,7 +7,7 @@
     "icon": "images/logo128.png",
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "publish": "vsce publish"
+        "publish": "npm version patch && vsce publish && git push"
     },
     "engines": {
         "vscode": "^1.10.0"
