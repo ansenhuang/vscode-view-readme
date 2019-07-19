@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"target": "es6",
+		"module": "commonjs",
+		"lib": [
+			"es6"
+		],
+		"sourceMap": true,
+		"baseUrl": ".",
+		"rootDir": "src",
+		"outDir": "out",
+		"moduleResolution": "node",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+	},
+	"include": [
+		"src"
+	]
+}

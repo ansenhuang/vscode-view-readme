@@ -1,11 +1,9 @@
 .vscode/**
 .vscode-test/**
-test/**
+out/test/**
+src/**
 .gitignore
-.DS_Store
-*.vsix
-*.log
-yarn.lock
-package-lock.json
-jsconfig.json
-.eslintrc.json
+**/tsconfig.json
+**/tslint.json
+**/*.map
+**/*.ts

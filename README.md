@@ -1,19 +1,21 @@
-# view-readme
+# vscode-view-readme
 
-Open readme with markdown quickly at nearly path of node_modules or remote url.
+Open docs or files in node_modules quickly.
 
-![](https://github.com/ansenhuang/vscode-view-readme/blob/master/images/example.gif?raw=true)
+![preview](./assets/img/preview.gif)
 
-### Commands
+## Commands
 
-* Readme: Open markdown in node_modules
-* Readme: Open markdown from remote url
+* viewReadme: Open docs in markdown from closest node_modules
+* viewReadme: Open files from closest node_modules
 
 ### KeyBindings
 
 * Mac
-  * cmd+shift+l (Readme: Open markdown in node_modules)
-  * cmd+shift+j (Readme: Open markdown from remote url)
+  - cmd+shift+l (open docs in markdown)
+  - cmd+shift+j (open files from node_modules)
 * Win
-  * ctrl+shift+l (Readme: Open markdown in node_modules)
-  * ctrl+shift+j (Readme: Open markdown from remote url)
+  - ctrl+shift+l (open docs in markdown)
+  - ctrl+shift+j (open files from node_modules)
+
+**Enjoy!**
