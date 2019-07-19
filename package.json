@@ -45,7 +45,7 @@
   },
   "displayName": "view-readme",
   "publisher": "ansenhuang",
-  "icon": "./assets/img/logo.png",
+  "icon": "assets/img/logo.png",
   "galleryBanner": {
     "color": "#eff1f3",
     "theme": "light"
